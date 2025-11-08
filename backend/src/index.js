@@ -17,6 +17,7 @@ app.get('/api/test', (req, res) => {
 });
 
 const port = process.env.PORT || 5000
+console.log(port)
 
 const start = async() => {
   try{

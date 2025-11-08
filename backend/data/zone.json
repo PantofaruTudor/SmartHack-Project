@@ -1,0 +1,43 @@
+[
+    {
+        "name":"Office",
+        "seats": 18,
+        "type": "full"
+    },
+    {
+        "name":"Conference",
+        "seats": 6,
+        "type": "full"
+
+    },
+    {
+        "name":"training",
+        "seats": 2,
+        "type": "full"
+
+    },
+    {
+        "name":"well-being",
+        "seats": 1,
+        "type": "individual"
+
+    },
+    {
+        "name":"beer-point",
+        "seats": 1,
+        "type": "individual"
+
+    },
+    {
+        "name":"management",
+        "seats": 2,
+        "type": "full"
+
+    },
+    {
+        "name":"bubble",
+        "seats": 4,
+        "type": "full"
+
+    }
+]
