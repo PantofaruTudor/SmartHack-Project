@@ -31,21 +31,26 @@
   -webkit-text-fill-color: transparent;
 }
 
+
 .logout-btn {
   padding: 8px 16px;
   background-color: transparent;
-  color: #666;
+  color: #dfdfdf;
   border: 1px solid #ddd;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 500;
+  width: 9rem;
 }
 
 .logout-btn:hover {
   background-color: #fff1f0;
-  color: #e05656;
-  border-color: #e05656;
+  color: #eeeeee;
+  border-color: #dc9774;
+  width: 11rem;
+  margin-right: -1rem;
+  
 }
 
 /* --- Main Content Area --- */
@@ -65,13 +70,20 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
+.menu-container h1 {
+    position: relative;
+    top: -65px;
+    font-size: 3.5rem;
+}
+
+
 .username-highlight {
   color: #4a90e2;
   font-weight: 600;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #666;
   margin-top: -10px;
   margin-bottom: 50px;
@@ -112,7 +124,7 @@
 }
 
 .action-card h3 {
-  margin: 0 0 10px 0;
+  margin: -40px 0 20px 0;
   color: #2c3e50;
   font-size: 1.3rem;
 }
@@ -188,3 +200,4 @@
     padding: 1rem;
   }
 }
+

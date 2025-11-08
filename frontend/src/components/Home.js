@@ -35,9 +35,9 @@ const renderContent = () => {
         return (
           <div className="view-container">
              <button className="back-btn" onClick={() => setCurrentView('menu')}>
-               ⬅ Înapoi la Meniu
+               Back to Menu
              </button>
-             <h2>Rezervă un Birou 🗺️</h2>
+             <h2>Choose a zone!</h2>
              {/* Aici se afișează harta interactivă */}
              <Map />
           </div>
@@ -46,32 +46,32 @@ const renderContent = () => {
         return (
           <div className="view-container">
             <button className="back-btn" onClick={() => setCurrentView('menu')}>
-              ⬅ Înapoi la Meniu
+              Back to Menu
             </button>
-            <h2>Rezervările Tale 📅</h2>
-            <p>Funcționalitate în lucru... Aici vei vedea lista ta de rezervări.</p>
+            <h2>Your bookings</h2>
+            <p>Still working!...</p>
             {/* <UserBookings />  <-- Decomentează când e gata componenta */}
           </div>
         );
       default: // Cazul 'menu' (pagina principală de Home)
         return (
           <div className="menu-container">
-            <h1>Salut, <span className="username-highlight">{username}</span>! 👋</h1>
-            <p className="subtitle">Ce dorești să faci astăzi?</p>
+            <h1>Hello, <span className="username-highlight">{username}</span>!</h1>
+            <p className="subtitle">What do you want to do?</p>
             
             <div className="action-buttons">
-              {/* Buton 1: Mergi la Hartă */}
+              {/* Button 1: Go to Map */}
               <div className="action-card" onClick={() => setCurrentView('map')}>
-                <div className="icon">🗺️</div>
-                <h3>Fă o Rezervare Nouă</h3>
-                <p>Vezi harta interactivă a biroului și alege-ți locul.</p>
+                <div className="icon"></div>
+                <h3>Make a new booking</h3>
+                <p>View the interactive map and choose your spot.</p>
               </div>
 
-              {/* Buton 2: Mergi la Rezervările mele */}
+              {/* Button 2: Go to Your Bookings */}
               <div className="action-card" onClick={() => setCurrentView('bookings')}>
-                <div className="icon">📅</div>
-                <h3>Vezi Rezervările Tale</h3>
-                <p>Verifică sau anulează rezervările active.</p>
+                <div className="icon"></div>
+                <h3>See your bookings</h3>
+                <p>Check or cancel your active bookings.</p>
               </div>
             </div>
           </div>
@@ -82,8 +82,8 @@ const renderContent = () => {
 return (
     <div className="home-container">
       <header className="home-header">
-        <div className="logo">SmartOffice</div>
-        <button className="logout-btn" onClick={handleLogout}>Delogare</button>
+        <div className="logo">Molson Coors</div>
+        <button className="logout-btn" onClick={handleLogout}>Log out</button>
       </header>
       
       <main className="home-main">
