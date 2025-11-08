@@ -68,9 +68,6 @@ export default function Login() {
           </button>
         </form>
 
-        <p className="register-link">
-          Nu ai cont? <a href="/register">Înregistrează-te</a>
-        </p>
       </div>
     </div>
   );
