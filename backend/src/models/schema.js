@@ -9,9 +9,11 @@ module.exports = (connection) => {
     });
 
     const UserSchema = new mongoose.Schema({
-        email: {type: String, require: true, unique: true},
+        username: {type: String, required: false, unique: true, sparse: true},
+        email: {type: String, required: true, unique: true},
         password: {type: String, required: true},
-        
+    }, {
+        timestamps: true
     });
 
     return{
