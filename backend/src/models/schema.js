@@ -8,10 +8,13 @@ module.exports = (connection) => {
         room: {type: String},
     });
 
+
     const UserSchema = new mongoose.Schema({
         username: {type: String, required: false, unique: true, sparse: true},
         email: {type: String, required: true, unique: true},
         password: {type: String, required: true},
+        role: {type: String, enum: ['user', 'admin'], default: 'user'},
+        reservations: [{type: mongoose.Schema.Types.ObjectId, ref: 'Items'}],
     }, {
         timestamps: true
     });

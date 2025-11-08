@@ -1,0 +1,190 @@
+/* src/components/Home.css */
+
+/* Container principal care ocupă tot ecranul */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f7fa; /* Gri deschis, modern */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* --- Header --- */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  background: linear-gradient(45deg, #4a90e2, #9013fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background-color: #fff1f0;
+  color: #e05656;
+  border-color: #e05656;
+}
+
+/* --- Main Content Area --- */
+.home-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrează conținutul vertical */
+  padding: 20px;
+}
+
+/* --- Meniul Principal (Starea 'menu') --- */
+.menu-container {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.username-highlight {
+  color: #4a90e2;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: -10px;
+  margin-bottom: 50px;
+}
+
+/* --- Butoanele Mari de Acțiune (Cards) --- */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 280px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.action-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  border-color: #4a90e2;
+}
+
+.action-card .icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.action-card h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+}
+
+.action-card p {
+  margin: 0;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+/* --- Vizualizările Secundare (Harta / Bookings) --- */
+.view-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s ease-out;
+}
+
+.back-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #4a90e2;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+.view-container h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+/* --- Animații Simple --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsiveness (Mobil) --- */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .action-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .home-header {
+    padding: 1rem;
+  }
+}
