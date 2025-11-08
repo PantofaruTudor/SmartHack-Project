@@ -1,17 +1,34 @@
-require('dotenv').config()  // ← Added ()
-const express = require('express')  // ← Moved before using it
+require('dotenv').config()
+const express = require('express')
 const app = express()
+const cors = require('cors')
 
+// Middleware
+app.use(cors())
+app.use(express.json())
 
-const port = 3000
+// Test route
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend funcționează!' });
+});
+
+app.get('/api/test', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date() });
+});
+
+const port = 5000
 const start = async() => {
   try{
-    const connectDB = require('./config/connect_database')  // ← Fixed path
-    const connection = connectDB(process.env.MONGO_URI)  // ← Renamed variable
+    const connectDB = require('./config/connect_database')
+    const connection = connectDB(process.env.MONGO_URI)
     const {Items,Users} = require('./models/schema')(connection)
-
-    
-    app.listen(port, ()=> console.log(`Server is listening to port ${port}`))
+    // Auth routes
+    const authRoutes = require('./routes/authRoutes');
+    app.use('/api/auth', authRoutes);
+    app.listen(port, ()=> {
+      console.log(`Server listening on port ${port}`);
+      console.log(`Auth API: http://localhost:${port}/api/auth/login`);
+    });
   }
   catch(error){
     console.error('Error starting',error.message);
