@@ -1,45 +1,21 @@
-// FIȘIERUL PRINCIPAL - Pornește serverul Express
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
+require('dotenv').config()  // ← Added ()
+const express = require('express')  // ← Moved before using it
+const app = express()
 
-// Încarcă variabilele de mediu din .env
-dotenv.config();
 
-// Creează aplicația Express
-const app = express();
-const PORT = process.env.PORT || 5000;
+const port = 3000
+const start = async() => {
+  try{
+    const connectDB = require('./config/connect_database')  // ← Fixed path
+    const connection = connectDB(process.env.MONGO_URI)  // ← Renamed variable
+    const {Items,Users} = require('./models/schema')(connection)
 
-// ===== MIDDLEWARE =====
-// CORS - permite frontend-ul să comunice cu backend-ul
-app.use(cors());
+    
+    app.listen(port, ()=> console.log(`Server is listening to port ${port}`))
+  }
+  catch(error){
+    console.error('Error starting',error.message);
+  }
+}
 
-// Parsează JSON din body-ul cererilor
-app.use(express.json());
-
-// Parsează URL-encoded data (formulare)
-app.use(express.urlencoded({ extended: true }));
-
-// ===== ROUTES =====
-// Route simplu de test
-app.get('/', (req, res) => {
-  res.json({ 
-    message: 'Backend SmartHack funcționează!',
-    timestamp: new Date().toISOString()
-  });
-});
-
-// Health check route
-app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK',
-    message: 'Server is running',
-    port: PORT
-  });
-});
-
-// ===== PORNIRE SERVER =====
-app.listen(PORT, () => {
-  console.log(`🚀 Server pornit pe http://localhost:${PORT}`);
-  console.log(`📝 Health check: http://localhost:${PORT}/api/health`);
-});
+start()
