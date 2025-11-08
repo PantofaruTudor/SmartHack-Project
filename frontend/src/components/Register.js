@@ -43,7 +43,17 @@ function Register() {
       window.location.href = '/dashboard';
       
     } catch (err) {
-      setError(err.response?.data?.message || 'Eroare la înregistrare');
+      console.error('Register error:', err);
+      
+      if (err.code === 'ERR_NETWORK' || err.message.includes('ERR_CONNECTION_REFUSED')) {
+        setError('Nu se poate conecta la server. Verifică dacă serverul backend rulează pe portul 5000.');
+      } else if (err.response) {
+        // Server responded with error status
+        setError(err.response.data?.message || 'Eroare la înregistrare');
+      } else {
+        // Network error or other issue
+        setError('Eroare de conexiune la server. Verifică că serverul backend rulează.');
+      }
     } finally {
       setIsLoading(false);
     }
