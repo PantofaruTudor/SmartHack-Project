@@ -45,7 +45,7 @@ const renderContent = () => {
       case 'bookings':
         return (
           <div className="view-container">
-            <button className="back-btn" onClick={() => setCurrentView('menu')}>
+            <button className="back-btn" id="btn2" onClick={() => setCurrentView('menu')}>
               Back to Menu
             </button>
             <h2>Your bookings</h2>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Map = () => {
     return (
-        <svg width="4096" height="1721" viewBox="0 0 4096 1721" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+        <svg  viewBox="0 0 4096 1721" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 <g id="HARTA">
 <rect id="MC_Etaj 4_Plan Compartimentare_11.09.2025-1 1" width="4096" height="1721" fill="url(#pattern0_7_935)"/>
 <g id="MANAGEMENT">
