@@ -24,7 +24,7 @@ export default function Login() {
       localStorage.setItem('user', JSON.stringify(response.data.user));
       
       // Redirect sau schimbă state
-      window.location.href = '/dashboard';
+      window.location.href = '/home';
       
     } catch (err) {
       console.error('Login error:', err);
