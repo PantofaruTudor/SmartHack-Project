@@ -19,9 +19,18 @@ module.exports = (connection) => {
 
     const UnitSchema=new mongoose.Schema({
         zoneId:{type:mongoose.Schema.Types.ObjectId,ref:'Zones',required:true},
-        capacity:{type:Number}, // nr. total locuri
-
+        unitNumber:{type:Number,required:true}, 
+        name:{type:String}, 
+        capacity:{type:Number}, 
+        bookingMode:{
+            type: String,
+            enum: ['by-seat', 'by-unit'],
+            required: true
+        },
+        approval:{type:Boolean, default:true}
     })
+    
+    UnitSchema.index({ zoneId: 1, unitNumber: 1 }, { unique: true })
 
     const UserSchema=new mongoose.Schema({
         username:{type:String,required:true,unique:true},
@@ -34,9 +43,11 @@ module.exports = (connection) => {
         userId:{type:mongoose.Schema.Types.ObjectId,ref:'Users',required:true},
         seatId:{type:mongoose.Schema.Types.ObjectId,ref:'Seats',required:true},
         date:{type:Date,required:true},
+        startTime:{type:String, require:true},
+        endTime:{type:String, required:true},
         status:{type:String,enum:['pending','approved','rejected'],default:'pending'}
     })
-
+ 
 
     return{
     Zones:connection.models.Zones||connection.model('Zones',ZoneSchema),

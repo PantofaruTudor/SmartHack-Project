@@ -2,7 +2,7 @@
     {
         "name":"Office",
         "seats": 18,
-        "type": "full"
+        "type": "individual"
     },
     {
         "name":"Conference",
@@ -18,14 +18,14 @@
     },
     {
         "name":"well-being",
-        "seats": 1,
+        "seats": 3,
         "type": "individual"
 
     },
     {
         "name":"beer-point",
         "seats": 1,
-        "type": "individual"
+        "type": "full"
 
     },
     {
