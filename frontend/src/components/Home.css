@@ -72,9 +72,11 @@
 }
 
 .menu-container h1 {
-    position: relative;
-    top: -65px;
     font-size: 3.5rem;
+}
+
+.menu-container p {
+    padding-top: 20px;
 }
 
 
